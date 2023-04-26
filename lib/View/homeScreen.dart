@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/TestList.dart';
+import 'package:untitled1/View/TestList.dart';
+import 'package:untitled1/View/UserTestWidget.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -104,11 +105,7 @@ class HomeScreen extends StatelessWidget {
                         child: TestList()
                       ),
                       Expanded(
-                        child: Container(
-                          color: Colors.blue[100],
-                          alignment: Alignment.center,
-                          child: Text('2'),
-                        ),
+                        child: UserTest()
                       ),
                     ],
                   ),
