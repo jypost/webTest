@@ -58,8 +58,6 @@ class _TestListState extends State<TestList> {
       // List<Map<String, dynamic>> newItems = jsonDecode(response.body);
 
       dynamic result = utf8.decode(response.bodyBytes);
-      // var data = json.decode(result);
-      // List<dynamic> jsonResponse = jsonDecode(response.body);
       List<dynamic> jsonResponse = jsonDecode(result);
       List<Map<String, dynamic>> newItems =
           List<Map<String, dynamic>>.from(jsonResponse);
@@ -96,8 +94,8 @@ class _TestListState extends State<TestList> {
       ),
       body: ListView.builder(
         controller: _scrollController,
-        itemCount: _items.length + (_hasMore ? 1 : 0),
-        // itemCount: _items.length,
+        // itemCount: _items.length + (_hasMore ? 1 : 0),
+        itemCount: _items.length + 1,
         itemBuilder: (context, index) {
           if (index == _items.length) {
             return _buildLoader();
@@ -125,7 +123,7 @@ class _TestListState extends State<TestList> {
         : _hasMore
             ? Container()
             : Container(
-                height: 50,
+                height: 70,
                 width: 400,
                 child: Center(
                   child: Text('마지막 데이터입니다.'),

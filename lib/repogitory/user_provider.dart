@@ -19,9 +19,11 @@ class UserProvider extends ChangeNotifier {
     dynamic result = utf8.decode(response.bodyBytes);
     final decodedUser = User.fromJson(jsonDecode(result));
     print('decodedUser :? ${decodedUser.responseMessage}');
+    user = decodedUser;
+    return decodedUser;
   }
   //fetch
-  _fetchUserCash(email, password) async {
+  fetchUserCash(email, password) async {
     user = await makeRequest(email, password);
     notifyListeners();
   }
